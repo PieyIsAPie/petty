@@ -5,6 +5,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
+SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 bot = discord.Bot(intents=discord.Intents.all())
 
 @bot.slash_command(name="kitty", description="ooo a kitty! I LOVE KITTY!")
@@ -39,6 +40,12 @@ async def doggy(ctx):
     except Exception as e:
         await ctx.respond("Failed to fetch a doggie image!")
         logging.error(f"Error fetching doggie image: {e}")
+
+@bot.event
+async def on_message(message):
+    # Ignore messages sent by the bot
+    if message.author == bot.user:
+        return
 
 @bot.event
 async def on_ready():
