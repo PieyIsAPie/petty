@@ -9,7 +9,7 @@ SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 bot = discord.Bot(intents=discord.Intents.all())
 
 class CatView(discord.ui.View):
-    @discord.ui.button(label="Get another kitty! :3", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Get another kitty! 🐈", style=discord.ButtonStyle.primary)
     async def button_callback(self, button, interaction):
         try:
             response = requests.get("https://api.thecatapi.com/v1/images/search")
@@ -21,7 +21,7 @@ class CatView(discord.ui.View):
             logging.error(f"Error fetching kitty image: {e}")
 
 class DuckView(discord.ui.View):
-    @discord.ui.button(label="Get another ducky! :duck:", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Get another ducky! 🦆", style=discord.ButtonStyle.primary)
     async def button_callback(self, button, interaction):
         try:
             response = requests.get("https://random-d.uk/api/v1/random")
@@ -33,7 +33,7 @@ class DuckView(discord.ui.View):
             logging.error(f"Error fetching ducky image: {e}")
 
 class DogView(discord.ui.View):
-    @discord.ui.button(label="Get another doggie! :D", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Get another doggie! 🐶", style=discord.ButtonStyle.primary)
     async def button_callback(self, button, interaction):
         try:
             response = requests.get("https://dog.ceo/api/breeds/image/random")
