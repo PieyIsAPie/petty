@@ -9,7 +9,7 @@ SCRIPTDIR = os.path.dirname(os.path.realpath(__file__))
 bot = discord.Bot(intents=discord.Intents.all())
 
 class CatView(discord.ui.View):
-    @discord.ui.button(label="Get another kitty!", style=discord.ButtonStyle.primary)
+    @discord.ui.button(label="Get another kitty! :3", style=discord.ButtonStyle.primary)
     async def button_callback(self, button, interaction):
         try:
             response = requests.get("https://api.thecatapi.com/v1/images/search")
@@ -44,7 +44,7 @@ class DogView(discord.ui.View):
             await interaction.response.send_message("Failed to fetch a doggie image!", ephemeral=True)
             logging.error(f"Error fetching doggie image: {e}")
 
-@bot.slash_command(name="kitty", description="ooo a kitty! I LOVE KITTY!")
+@bot.slash_command(name="kitty", description="ooo a kitty! I LOVE KITTY! :3")
 async def kitty(ctx):
     try:
         response = requests.get("https://api.thecatapi.com/v1/images/search")
